@@ -2,8 +2,8 @@ import { Mail, MapPin, Phone } from 'lucide-react';
 import { SectionHeader } from '../components/SectionHeader';
 
 const profile = {
-  name: 'Dinh Huynh',
-  role: 'Frontend Developer',
+  name: 'Nguyễn Ngọc Đính',
+  role: 'Backend Engineer',
   email: 'hello@example.com',
   phone: '+84 900 000 000',
   location: 'Ho Chi Minh City, Vietnam',

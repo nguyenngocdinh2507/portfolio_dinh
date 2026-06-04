@@ -375,7 +375,7 @@ export function DashboardPage() {
         <div>
           <p className="eyebrow">CV Studio</p>
           <h1>Workspace chỉnh sửa CV cá nhân</h1>
-          <p>Dinh Huynh Portfolio Builder</p>
+          <p>Nguyễn Ngọc Đính Portfolio Builder</p>
         </div>
         <div className="hero-status">
           <span>{cv.sections.length} section</span>

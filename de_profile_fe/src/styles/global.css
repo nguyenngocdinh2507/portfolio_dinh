@@ -95,6 +95,7 @@ code {
   border-bottom: 1px solid rgb(156 247 232 / 16%);
   background: rgb(3 5 10 / 78%);
   backdrop-filter: blur(16px);
+  box-shadow: 0 0 34px rgb(156 247 232 / 7%);
 }
 
 .brand,
@@ -201,10 +202,17 @@ code {
 .button-primary {
   background: #1b8a80;
   color: #ffffff;
+  box-shadow: 0 0 0 rgb(156 247 232 / 0%);
+  transition:
+    background 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
 }
 
 .button-primary:hover {
   background: #176f6b;
+  box-shadow: 0 0 28px rgb(156 247 232 / 22%);
+  transform: translateY(-1px);
 }
 
 .button-secondary {
@@ -310,6 +318,25 @@ code {
   background: rgb(156 247 232 / 12%);
 }
 
+.cosmic-copy .eyebrow,
+.cosmic-copy h1,
+.cosmic-copy p,
+.home-actions {
+  animation: reveal-up 760ms ease both;
+}
+
+.cosmic-copy h1 {
+  animation-delay: 90ms;
+}
+
+.cosmic-copy p {
+  animation-delay: 170ms;
+}
+
+.home-actions {
+  animation-delay: 250ms;
+}
+
 .hero-meta {
   position: absolute;
   right: clamp(18px, 5vw, 74px);
@@ -329,6 +356,70 @@ code {
   color: #d7f9f4;
   font-size: 0.86rem;
   font-weight: 850;
+  animation: reveal-up 680ms ease both;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.hero-meta span:nth-child(2) {
+  animation-delay: 80ms;
+}
+
+.hero-meta span:nth-child(3) {
+  animation-delay: 160ms;
+}
+
+.hero-meta span:nth-child(4) {
+  animation-delay: 240ms;
+}
+
+.hero-meta span:nth-child(5) {
+  animation-delay: 320ms;
+}
+
+.hero-meta span:hover {
+  border-color: rgb(255 189 122 / 56%);
+  box-shadow: 0 0 22px rgb(255 189 122 / 14%);
+  transform: translateY(-2px);
+}
+
+.data-rails {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.data-rails span {
+  position: absolute;
+  left: -18%;
+  width: 44%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgb(156 247 232 / 58%), transparent);
+  opacity: 0;
+  transform: rotate(-10deg);
+  animation: rail-scan 7s linear infinite;
+}
+
+.data-rails span:nth-child(1) {
+  top: 24%;
+}
+
+.data-rails span:nth-child(2) {
+  top: 42%;
+  animation-delay: 1.8s;
+}
+
+.data-rails span:nth-child(3) {
+  top: 62%;
+  animation-delay: 3.2s;
+}
+
+.data-rails span:nth-child(4) {
+  top: 78%;
+  animation-delay: 5s;
 }
 
 .home-section {
@@ -366,6 +457,19 @@ code {
 .signal-card {
   min-height: 238px;
   padding: 22px;
+  transform: translateY(0);
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.signal-card:hover {
+  border-color: rgb(156 247 232 / 38%);
+  box-shadow:
+    0 24px 70px rgb(0 0 0 / 30%),
+    0 0 34px rgb(156 247 232 / 10%);
+  transform: translateY(-4px);
 }
 
 .signal-card svg {
@@ -402,6 +506,45 @@ code {
   align-items: center;
   min-height: 74px;
   padding: 12px 16px;
+  position: relative;
+  overflow: hidden;
+  transition:
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.machine-project::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(100deg, transparent 0%, rgb(156 247 232 / 12%) 48%, transparent 62%);
+  transform: translateX(-120%);
+  animation: project-sweep 5.4s ease-in-out infinite;
+}
+
+.machine-project:nth-child(2)::after {
+  animation-delay: 0.45s;
+}
+
+.machine-project:nth-child(3)::after {
+  animation-delay: 0.9s;
+}
+
+.machine-project:nth-child(4)::after {
+  animation-delay: 1.35s;
+}
+
+.machine-project:nth-child(5)::after {
+  animation-delay: 1.8s;
+}
+
+.machine-project:nth-child(6)::after {
+  animation-delay: 2.25s;
+}
+
+.machine-project:hover {
+  border-color: rgb(255 189 122 / 36%);
+  transform: translateX(4px);
 }
 
 .machine-project span {
@@ -419,12 +562,68 @@ code {
   gap: 28px;
   margin-bottom: 34px;
   padding: clamp(28px, 5vw, 46px);
+  animation: console-glow 5.5s ease-in-out infinite;
 }
 
 .console-actions {
   display: grid;
   gap: 10px;
   align-content: center;
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rail-scan {
+  0% {
+    opacity: 0;
+    transform: translateX(0) rotate(-10deg);
+  }
+
+  12%,
+  42% {
+    opacity: 0.72;
+  }
+
+  60%,
+  100% {
+    opacity: 0;
+    transform: translateX(320%) rotate(-10deg);
+  }
+}
+
+@keyframes project-sweep {
+  0%,
+  42% {
+    transform: translateX(-120%);
+  }
+
+  70%,
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+@keyframes console-glow {
+  0%,
+  100% {
+    box-shadow: 0 22px 60px rgb(0 0 0 / 24%);
+  }
+
+  50% {
+    box-shadow:
+      0 22px 60px rgb(0 0 0 / 26%),
+      0 0 42px rgb(156 247 232 / 10%);
+  }
 }
 
 .cv-builder-page {
@@ -947,5 +1146,16 @@ code {
     min-height: auto;
     border: 0;
     border-radius: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
   }
 }

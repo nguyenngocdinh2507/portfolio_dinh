@@ -35,7 +35,7 @@ export function HomePage() {
         <CosmicMachineScene />
         <div className="hero-vignette" aria-hidden="true" />
         <div className="cosmic-copy">
-          <p className="eyebrow">Dinh Huynh / Backend Engineer</p>
+          <p className="eyebrow">Nguyễn Ngọc Đính / Backend Engineer</p>
           <h1>Backend Engineer chuyên ERP & Business Systems.</h1>
           <p>
             Tôi phát triển hệ thống ERP, quản lý kho, sản xuất và bán hàng với Node.js, Express.js, MySQL, Redis,
@@ -58,6 +58,12 @@ export function HomePage() {
           <span>Redis</span>
           <span>MQTT</span>
           <span>Docker</span>
+        </div>
+        <div className="data-rails" aria-hidden="true">
+          <span />
+          <span />
+          <span />
+          <span />
         </div>
       </section>
 

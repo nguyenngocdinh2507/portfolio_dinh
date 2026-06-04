@@ -11,12 +11,12 @@ export function AppLayout() {
   return (
     <div className="site-shell">
       <header className="site-header">
-        <Link className="brand" to="/" aria-label="Dinh Huynh Portfolio">
+        <Link className="brand" to="/" aria-label="Nguyễn Ngọc Đính Portfolio">
           <span className="brand-mark">
             <Atom size={20} aria-hidden="true" />
           </span>
           <span>
-            <strong>Dinh Huynh</strong>
+            <strong>Nguyễn Ngọc Đính</strong>
             <small>Backend ERP Systems</small>
           </span>
         </Link>

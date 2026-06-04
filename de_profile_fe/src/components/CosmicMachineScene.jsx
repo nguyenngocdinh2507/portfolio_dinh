@@ -21,6 +21,7 @@ export function CosmicMachineScene() {
 
     const root = new THREE.Group();
     scene.add(root);
+    const pointer = { x: 0, y: 0 };
 
     const ambient = new THREE.AmbientLight(0x8bd7ff, 0.6);
     scene.add(ambient);
@@ -124,13 +125,22 @@ export function CosmicMachineScene() {
       camera.updateProjectionMatrix();
     }
 
+    function handlePointerMove(event) {
+      const bounds = mount.getBoundingClientRect();
+      pointer.x = ((event.clientX - bounds.left) / Math.max(bounds.width, 1) - 0.5) * 2;
+      pointer.y = ((event.clientY - bounds.top) / Math.max(bounds.height, 1) - 0.5) * 2;
+    }
+
     const clock = new THREE.Clock();
     let frameId = 0;
 
     function animate() {
       const elapsed = clock.getElapsedTime();
-      root.rotation.y = elapsed * 0.18;
-      root.rotation.x = Math.sin(elapsed * 0.36) * 0.08;
+      camera.position.x += (pointer.x * 0.34 - camera.position.x) * 0.035;
+      camera.position.y += (1.2 - pointer.y * 0.22 - camera.position.y) * 0.035;
+      camera.lookAt(0, 0, 0);
+      root.rotation.y = elapsed * 0.18 + pointer.x * 0.08;
+      root.rotation.x = Math.sin(elapsed * 0.36) * 0.08 + pointer.y * 0.05;
       core.rotation.y = elapsed * 0.36;
       core.rotation.z = elapsed * 0.18;
       moduleGroup.rotation.y = -elapsed * 0.24;
@@ -148,10 +158,12 @@ export function CosmicMachineScene() {
     resize();
     animate();
     window.addEventListener('resize', resize);
+    mount.addEventListener('pointermove', handlePointerMove);
 
     return () => {
       cancelAnimationFrame(frameId);
       window.removeEventListener('resize', resize);
+      mount.removeEventListener('pointermove', handlePointerMove);
       mount.removeChild(renderer.domElement);
       starGeometry.dispose();
       core.geometry.dispose();

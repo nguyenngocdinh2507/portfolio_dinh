@@ -3,6 +3,15 @@ import { expect, test } from '@playwright/test';
 async function expectCanvasHasSignal(page) {
   const canvas = page.locator('.cosmic-scene canvas');
   await expect(canvas).toBeVisible();
+  await page.waitForFunction(() => {
+    const element = document.querySelector('.cosmic-scene canvas');
+    if (!element) {
+      return false;
+    }
+
+    const gl = element.getContext('webgl2') || element.getContext('webgl');
+    return Boolean(gl && gl.drawingBufferWidth > 0 && gl.drawingBufferHeight > 0);
+  });
   await page.waitForTimeout(900);
 
   const stats = await canvas.evaluate((element) => {
@@ -13,6 +22,9 @@ async function expectCanvasHasSignal(page) {
 
     const width = gl.drawingBufferWidth;
     const height = gl.drawingBufferHeight;
+    if (!width || !height) {
+      return { colorful: 0, bright: 0, samples: 0 };
+    }
     const pixels = new Uint8Array(width * height * 4);
     gl.readPixels(0, 0, width, height, gl.RGBA, gl.UNSIGNED_BYTE, pixels);
 
