@@ -1,0 +1,121 @@
+{
+  "profile": {
+    "name": "Dinh Huynh",
+    "role": "Frontend Developer",
+    "email": "hello@example.com",
+    "phone": "+84 900 000 000",
+    "location": "Ho Chi Minh City, Vietnam",
+    "website": "https://github.com",
+    "summary": "Frontend developer tap trung vao React, giao dien responsive va trai nghiem san pham ro rang. Minh thich bien yeu cau mo thanh UI de dung, de bao tri va co toc do tot."
+  },
+  "sections": [
+    {
+      "id": "experience",
+      "type": "experience",
+      "title": "Kinh nghiem",
+      "items": [
+        {
+          "id": "exp-1",
+          "title": "Frontend Developer",
+          "subtitle": "Product Team",
+          "meta": "2024 - nay",
+          "level": "",
+          "description": "Xay dung UI React, ket noi API, chuan hoa component va cai thien toc do tai trang."
+        },
+        {
+          "id": "exp-2",
+          "title": "Web Developer",
+          "subtitle": "Freelance Projects",
+          "meta": "2022 - 2024",
+          "level": "",
+          "description": "Thiet ke va trien khai landing page, admin portal, portfolio va web app cho khach hang nho."
+        }
+      ]
+    },
+    {
+      "id": "skills",
+      "type": "skills",
+      "title": "Ky nang",
+      "items": [
+        {
+          "id": "skill-1",
+          "title": "React",
+          "subtitle": "",
+          "meta": "",
+          "level": "Advanced",
+          "description": ""
+        },
+        {
+          "id": "skill-2",
+          "title": "JavaScript",
+          "subtitle": "",
+          "meta": "",
+          "level": "Advanced",
+          "description": ""
+        },
+        {
+          "id": "skill-3",
+          "title": "Responsive UI",
+          "subtitle": "",
+          "meta": "",
+          "level": "Advanced",
+          "description": ""
+        },
+        {
+          "id": "skill-4",
+          "title": "API Integration",
+          "subtitle": "",
+          "meta": "",
+          "level": "Intermediate",
+          "description": ""
+        },
+        {
+          "id": "skill-5",
+          "title": "Performance",
+          "subtitle": "",
+          "meta": "",
+          "level": "Intermediate",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "projects",
+      "type": "projects",
+      "title": "Du an",
+      "items": [
+        {
+          "id": "project-1",
+          "title": "Analytics Workspace",
+          "subtitle": "SaaS Dashboard",
+          "meta": "React, Charts, Design System",
+          "level": "",
+          "description": "Bo man hinh phan tich du lieu tap trung vao kha nang scan nhanh, trang thai ro rang va bieu do de doc."
+        },
+        {
+          "id": "project-2",
+          "title": "Hiring Pipeline",
+          "subtitle": "Productivity App",
+          "meta": "Routing, Forms, API",
+          "level": "",
+          "description": "Luong quan ly ung vien voi bang Kanban, form nhieu buoc va trang thai realtime cho team tuyen dung."
+        }
+      ]
+    },
+    {
+      "id": "education",
+      "type": "education",
+      "title": "Hoc van",
+      "items": [
+        {
+          "id": "edu-1",
+          "title": "Software Engineering",
+          "subtitle": "University / Bootcamp",
+          "meta": "2019 - 2023",
+          "level": "",
+          "description": "Nen tang ve lap trinh web, cau truc du lieu, UI co ban va quy trinh phat trien phan mem."
+        }
+      ]
+    }
+  ]
+}
