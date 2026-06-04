@@ -1,7 +1,5 @@
 import { expect, test } from '@playwright/test';
 
-const baseUrl = 'http://localhost:5175';
-
 async function expectCanvasHasSignal(page) {
   const canvas = page.locator('.cosmic-scene canvas');
   await expect(canvas).toBeVisible();
@@ -50,16 +48,16 @@ async function expectCanvasHasSignal(page) {
 
 test('cosmic homepage renders a nonblank desktop scene', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 1000 });
-  await page.goto(baseUrl);
-  await expect(page.getByRole('heading', { name: /technology feels alive/i })).toBeVisible();
+  await page.goto('/');
+  await expect(page.getByRole('heading', { name: /Backend Engineer chuyên ERP/i })).toBeVisible();
   await expectCanvasHasSignal(page);
   await page.screenshot({ path: 'test-results/cosmic-home-desktop.png', fullPage: true });
 });
 
 test('cosmic homepage renders a nonblank mobile scene', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto(baseUrl);
-  await expect(page.getByRole('heading', { name: /technology feels alive/i })).toBeVisible();
+  await page.goto('/');
+  await expect(page.getByRole('heading', { name: /Backend Engineer chuyên ERP/i })).toBeVisible();
   await expectCanvasHasSignal(page);
   await page.screenshot({ path: 'test-results/cosmic-home-mobile.png', fullPage: true });
 });

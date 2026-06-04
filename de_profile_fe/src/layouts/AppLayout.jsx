@@ -17,7 +17,7 @@ export function AppLayout() {
           </span>
           <span>
             <strong>Dinh Huynh</strong>
-            <small>Cosmic Interface</small>
+            <small>Backend ERP Systems</small>
           </span>
         </Link>
 

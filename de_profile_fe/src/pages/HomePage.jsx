@@ -4,26 +4,28 @@ import { CosmicMachineScene } from '../components/CosmicMachineScene';
 const signalCards = [
   {
     icon: Cpu,
-    title: 'Frontend Systems',
-    text: 'React interfaces, motion states, responsive surfaces and product-grade component structure.',
+    title: 'Backend Architecture',
+    text: 'Node.js, Express.js, REST API, module architecture, authentication, authorization and secure service boundaries.',
   },
   {
     icon: CircuitBoard,
-    title: 'Machine Logic',
-    text: 'Clean API flows, clear state transitions, performance-aware rendering and maintainable data shapes.',
+    title: 'ERP Business Logic',
+    text: 'Sales, warehouse, production, contracts, debt, cash flow and reporting flows mapped into reliable systems.',
   },
   {
     icon: Satellite,
-    title: 'Digital Atmosphere',
-    text: 'Portfolio visuals with cosmic depth, technical rhythm and a personal signature beyond a plain CV.',
+    title: 'Infrastructure Signal',
+    text: 'MySQL, Redis, MQTT, Docker, Linux and realtime communication for business systems that keep moving.',
   },
 ];
 
 const projects = [
-  'Analytics Workspace',
-  'Hiring Pipeline',
-  'Portfolio Platform',
-  'CV Studio',
+  'ERP Business Suite',
+  'Warehouse Management',
+  'Production Management',
+  'Dynamic Pricing System',
+  'Cash Transaction',
+  'Dashboard & Reporting',
 ];
 
 export function HomePage() {
@@ -33,11 +35,11 @@ export function HomePage() {
         <CosmicMachineScene />
         <div className="hero-vignette" aria-hidden="true" />
         <div className="cosmic-copy">
-          <p className="eyebrow">Dinh Huynh / Frontend Developer</p>
-          <h1>Building interfaces where technology feels alive.</h1>
+          <p className="eyebrow">Dinh Huynh / Backend Engineer</p>
+          <h1>Backend Engineer chuyên ERP & Business Systems.</h1>
           <p>
-            Portfolio cá nhân pha trộn không gian, máy móc và sản phẩm web: nơi các giao diện React được thiết kế như
-            hệ thống có nhịp, có lực và có chiều sâu.
+            Tôi phát triển hệ thống ERP, quản lý kho, sản xuất và bán hàng với Node.js, Express.js, MySQL, Redis,
+            MQTT, Docker và Linux.
           </p>
           <div className="home-actions">
             <a className="button button-primary" href="/studio">
@@ -51,16 +53,18 @@ export function HomePage() {
           </div>
         </div>
         <div className="hero-meta">
-          <span>React</span>
-          <span>Three.js</span>
-          <span>Machine UI</span>
+          <span>Node.js</span>
+          <span>MySQL</span>
+          <span>Redis</span>
+          <span>MQTT</span>
+          <span>Docker</span>
         </div>
       </section>
 
       <section className="home-section signal-section" id="systems">
         <div className="home-section-heading">
           <p className="eyebrow">Systems</p>
-          <h2>Giao diện cá nhân nhưng mang cảm giác của một cỗ máy số.</h2>
+          <h2>Các hệ thống doanh nghiệp vận hành như một cỗ máy dữ liệu.</h2>
         </div>
         <div className="signal-grid">
           {signalCards.map((card) => {
@@ -80,7 +84,7 @@ export function HomePage() {
       <section className="home-section machine-band" id="work">
         <div>
           <p className="eyebrow">Work Index</p>
-          <h2>Selected modules</h2>
+          <h2>ERP modules</h2>
         </div>
         <div className="project-strip">
           {projects.map((project, index) => (
@@ -95,7 +99,7 @@ export function HomePage() {
       <section className="home-section contact-console" id="contact">
         <div>
           <p className="eyebrow">Transmission</p>
-          <h2>Kết nối để biến ý tưởng thành giao diện có thể chạy.</h2>
+          <h2>Kết nối để biến nghiệp vụ thành hệ thống backend có thể vận hành.</h2>
         </div>
         <div className="console-actions">
           <a className="contact-link" href="mailto:hello@example.com">
