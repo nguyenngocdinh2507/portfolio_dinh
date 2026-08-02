@@ -1,124 +1,150 @@
-import { ArrowUpRight, CircuitBoard, Cpu, FileUser, Github, Linkedin, Mail, Satellite } from 'lucide-react';
-import { CosmicMachineScene } from '../components/CosmicMachineScene';
-
-const signalCards = [
-  {
-    icon: Cpu,
-    title: 'Backend Architecture',
-    text: 'Node.js, Express.js, REST API, module architecture, authentication, authorization and secure service boundaries.',
-  },
-  {
-    icon: CircuitBoard,
-    title: 'ERP Business Logic',
-    text: 'Sales, warehouse, production, contracts, debt, cash flow and reporting flows mapped into reliable systems.',
-  },
-  {
-    icon: Satellite,
-    title: 'Infrastructure Signal',
-    text: 'MySQL, Redis, MQTT, Docker, Linux and realtime communication for business systems that keep moving.',
-  },
-];
-
-const projects = [
-  'ERP Business Suite',
-  'Warehouse Management',
-  'Production Management',
-  'Dynamic Pricing System',
-  'Cash Transaction',
-  'Dashboard & Reporting',
-];
+import { Github, GraduationCap, Mail, MapPin, Phone } from 'lucide-react';
+import { StatCard } from '../components/StatCard';
+import { SectionHeader } from '../components/SectionHeader';
+import {
+  education,
+  experience,
+  profile,
+  projects,
+  skillGroups,
+  stats,
+} from '../data/cv';
 
 export function HomePage() {
   return (
     <main className="home-page">
-      <section className="cosmic-hero">
-        <CosmicMachineScene />
-        <div className="hero-vignette" aria-hidden="true" />
-        <div className="cosmic-copy">
-          <p className="eyebrow">Nguyễn Ngọc Đính / Backend Engineer</p>
-          <h1>Backend Engineer chuyên ERP & Business Systems.</h1>
-          <p>
-            Tôi phát triển hệ thống ERP, quản lý kho, sản xuất và bán hàng với Node.js, Express.js, MySQL, Redis,
-            MQTT, Docker và Linux.
-          </p>
-          <div className="home-actions">
-            <a className="button button-primary" href="/studio">
-              <FileUser size={18} aria-hidden="true" />
-              Mở CV Studio
-            </a>
-            <a className="button button-glass" href="#systems">
-              Xem hệ thống
-              <ArrowUpRight size={18} aria-hidden="true" />
-            </a>
-          </div>
+      <section className="hero">
+        <p className="eyebrow">{profile.name} / {profile.role}</p>
+        <h1>Xây dựng backend cho các hệ thống nghiệp vụ thực tế.</h1>
+        <p className="hero-lead">{profile.summary}</p>
+
+        <div className="hero-contact">
+          <span>
+            <MapPin size={16} aria-hidden="true" />
+            {profile.location}
+          </span>
+          <a href={`tel:${profile.phone}`}>
+            <Phone size={16} aria-hidden="true" />
+            {profile.phone}
+          </a>
+          <a href={`mailto:${profile.email}`}>
+            <Mail size={16} aria-hidden="true" />
+            {profile.email}
+          </a>
+          <a href={profile.github} target="_blank" rel="noreferrer">
+            <Github size={16} aria-hidden="true" />
+            github.com/nguyenngocdinh2507
+          </a>
         </div>
-        <div className="hero-meta">
-          <span>Node.js</span>
-          <span>MySQL</span>
-          <span>Redis</span>
-          <span>MQTT</span>
-          <span>Docker</span>
-        </div>
-        <div className="data-rails" aria-hidden="true">
-          <span />
-          <span />
-          <span />
-          <span />
+
+        <div className="home-actions">
+          <a className="button button-primary" href={`mailto:${profile.email}`}>
+            <Mail size={18} aria-hidden="true" />
+            Liên hệ với tôi
+          </a>
+          <a className="button button-outline" href={profile.github} target="_blank" rel="noreferrer">
+            <Github size={18} aria-hidden="true" />
+            Xem GitHub
+          </a>
         </div>
       </section>
 
-      <section className="home-section signal-section" id="systems">
-        <div className="home-section-heading">
-          <p className="eyebrow">Systems</p>
-          <h2>Các hệ thống doanh nghiệp vận hành như một cỗ máy dữ liệu.</h2>
-        </div>
-        <div className="signal-grid">
-          {signalCards.map((card) => {
-            const Icon = card.icon;
-
-            return (
-              <article className="signal-card" key={card.title}>
-                <Icon size={24} aria-hidden="true" />
-                <h3>{card.title}</h3>
-                <p>{card.text}</p>
-              </article>
-            );
-          })}
+      <section className="home-section" id="about">
+        <SectionHeader eyebrow="Giới thiệu" title="Đôi nét về tôi" />
+        <div className="stats-grid">
+          {stats.map((stat) => (
+            <StatCard key={stat.label} label={stat.label} value={stat.value} trend={stat.trend} />
+          ))}
         </div>
       </section>
 
-      <section className="home-section machine-band" id="work">
-        <div>
-          <p className="eyebrow">Work Index</p>
-          <h2>ERP modules</h2>
-        </div>
-        <div className="project-strip">
-          {projects.map((project, index) => (
-            <article className="machine-project" key={project}>
-              <span>{String(index + 1).padStart(2, '0')}</span>
-              <strong>{project}</strong>
+      <section className="home-section" id="skills">
+        <SectionHeader eyebrow="Kỹ năng" title="Công nghệ tôi làm việc cùng" />
+        <div className="skills-grid">
+          {skillGroups.map((group) => (
+            <article className="skill-card" key={group.title}>
+              <h3>{group.title}</h3>
+              <ul>
+                {group.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="home-section contact-console" id="contact">
-        <div>
-          <p className="eyebrow">Transmission</p>
-          <h2>Kết nối để biến nghiệp vụ thành hệ thống backend có thể vận hành.</h2>
+      <section className="home-section" id="experience">
+        <SectionHeader eyebrow="Kinh nghiệm" title="Quá trình làm việc" />
+        <div className="timeline">
+          {experience.map((job) => (
+            <article className="timeline-item" key={job.company}>
+              <div className="timeline-heading">
+                <h3>{job.role}</h3>
+                <span className="timeline-period">{job.period}</span>
+              </div>
+              <p className="timeline-company">{job.company}</p>
+              <ul>
+                {job.highlights.map((point) => (
+                  <li key={point}>{point}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
         </div>
-        <div className="console-actions">
-          <a className="contact-link" href="mailto:hello@example.com">
+      </section>
+
+      <section className="home-section" id="projects">
+        <SectionHeader eyebrow="Dự án cá nhân" title="Dự án tôi đã xây dựng" />
+        <div className="projects-grid">
+          {projects.map((item) => (
+            <article className="project-card" key={item.name}>
+              <h3>{item.name}</h3>
+              <p>{item.description}</p>
+              <div className="tag-list">
+                {item.stack.map((tech) => (
+                  <span key={tech}>{tech}</span>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="home-section" id="education">
+        <SectionHeader eyebrow="Học vấn" title="Quá trình học tập" />
+        <div className="education-list">
+          {education.map((item) => (
+            <article className="education-item" key={item.school}>
+              <GraduationCap size={22} aria-hidden="true" />
+              <div>
+                <h3>{item.school}</h3>
+                <p>{item.degree}</p>
+                <span>{item.period}</span>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="home-section contact-section" id="contact">
+        <SectionHeader
+          eyebrow="Liên hệ"
+          title="Sẵn sàng trao đổi về vị trí Backend Engineer"
+          description="Gửi email hoặc kết nối với tôi qua GitHub, tôi sẽ phản hồi sớm nhất có thể."
+        />
+        <div className="contact-links">
+          <a className="contact-link" href={`mailto:${profile.email}`}>
             <Mail size={18} aria-hidden="true" />
-            hello@example.com
+            {profile.email}
           </a>
-          <a className="contact-link" href="https://github.com" target="_blank" rel="noreferrer">
+          <a className="contact-link" href={`tel:${profile.phone}`}>
+            <Phone size={18} aria-hidden="true" />
+            {profile.phone}
+          </a>
+          <a className="contact-link" href={profile.github} target="_blank" rel="noreferrer">
             <Github size={18} aria-hidden="true" />
             GitHub
-          </a>
-          <a className="contact-link" href="https://linkedin.com" target="_blank" rel="noreferrer">
-            <Linkedin size={18} aria-hidden="true" />
-            LinkedIn
           </a>
         </div>
       </section>

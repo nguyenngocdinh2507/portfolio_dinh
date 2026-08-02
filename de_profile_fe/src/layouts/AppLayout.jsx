@@ -1,23 +1,23 @@
 import { Link, Outlet } from 'react-router-dom';
-import { Atom, FileUser, Mail } from 'lucide-react';
+import { Github, Mail } from 'lucide-react';
+import { profile } from '../data/cv';
 
 const navItems = [
-  { href: '/#systems', label: 'Systems' },
-  { href: '/#work', label: 'Work' },
-  { href: '/studio', label: 'CV Studio' },
+  { href: '/#about', label: 'Giới thiệu' },
+  { href: '/#skills', label: 'Kỹ năng' },
+  { href: '/#experience', label: 'Kinh nghiệm' },
+  { href: '/#projects', label: 'Dự án' },
+  { href: '/#contact', label: 'Liên hệ' },
 ];
 
 export function AppLayout() {
   return (
     <div className="site-shell">
       <header className="site-header">
-        <Link className="brand" to="/" aria-label="Nguyễn Ngọc Đính Portfolio">
-          <span className="brand-mark">
-            <Atom size={20} aria-hidden="true" />
-          </span>
+        <Link className="brand" to="/" aria-label={`${profile.name} Portfolio`}>
           <span>
-            <strong>Nguyễn Ngọc Đính</strong>
-            <small>Backend ERP Systems</small>
+            <strong>{profile.name}</strong>
+            <small>{profile.role}</small>
           </span>
         </Link>
 
@@ -30,17 +30,31 @@ export function AppLayout() {
         </nav>
 
         <div className="header-actions" aria-label="Liên kết cá nhân">
-          <a className="icon-button" href="mailto:hello@example.com" aria-label="Email">
+          <a className="icon-button" href={`mailto:${profile.email}`} aria-label="Email">
             <Mail size={18} aria-hidden="true" />
           </a>
-          <Link className="button button-primary header-cta" to="/studio">
-            <FileUser size={17} aria-hidden="true" />
-            CV Studio
-          </Link>
+          <a
+            className="icon-button"
+            href={profile.github}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="GitHub"
+          >
+            <Github size={18} aria-hidden="true" />
+          </a>
+          <a className="button button-primary header-cta" href="/#contact">
+            Liên hệ
+          </a>
         </div>
       </header>
 
       <Outlet />
+
+      <footer className="site-footer">
+        <p>
+          © {new Date().getFullYear()} {profile.name}
+        </p>
+      </footer>
     </div>
   );
 }
